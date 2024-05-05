@@ -1,0 +1,43 @@
+<div class="profile">
+    <div class="profileDane">
+        <div class="profileDane1">
+            <% if (user) { %>
+                <h1>Hello, <%= user.userName %>!</h1>
+            <% } else { %>
+                <p>User profile not found</p>
+            <% } %>
+
+            <% if (user) { %>
+                <section>
+                    <h3>That is your information</h3>
+                    <ul>
+                        <li><strong>Email:</strong> <%= user.email %></li>
+                        <!-- Inne dane, ktore zostana dodane pozniej -->
+                    </ul>
+                </section> 
+            <% } %>
+        </div>
+        <form class="logoutButton" action="/logout">
+            <button>Logout</button>
+        </form>
+        <form class="deleteButton" id="deleteAccountButton" action="/profile" method="POST">
+            <button type="submit">Delete account</button>
+        </form>
+</div>
+</div>
+<script>
+    document.getElementById('deleteAccountButton').addEventListener('click', async () => {
+      try {
+        const response = await fetch('/profile', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        console.log(data.message); 
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  </script>
