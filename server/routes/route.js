@@ -5,6 +5,7 @@ const cController = require('../controllers/controller');
 const User = require("../models/User");
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 
+router.get('*', checkUser);
 router.get('/', cController.homepage);
 router.get('/signup', cController.signup_get);
 router.post('/signup', cController.signup_post);

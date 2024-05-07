@@ -5,7 +5,7 @@
     font-family: "Roboto Mono", monospace;
 }
 header{
-    background-color: #7149ad !important;
+    background-color: #6c27b1 !important;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.747);
     position: fixed;
     width: 100%;
@@ -18,6 +18,9 @@ header{
     font-size: 30px;
     font-weight: bold;
     color:#ffffff;
+}
+.navbar-nav ul{
+background-color:#00000000;
 }
 .carousel-innerr{
     background-image: url(../img/slider4.jpg);
@@ -58,13 +61,13 @@ header{
     font-weight: bold;
 }
 .btnLog{
-    background-color: #9c74e0;
-    border-color: #9c74e0;
+    background-color: #8238bb;
+    border-color: #8238bb;
 }
 footer{
     color:#9c9c9c;
     padding-top: 50px;
-    border-top: 2px solid #9c74e0;
+    border-top: 2px solid #8238bb;
     font-size: 14px;
 }
 
@@ -96,7 +99,7 @@ footer{
   margin-bottom: 30px ;
   padding: 10px 12px;
   border-radius: 4px;
-  border: 3px solid #9c74e0;
+  border: 3px solid #8238bb;
   font-size: 1em;
   width: 100%;
 }
@@ -114,12 +117,20 @@ footer{
 
 .profile{
     padding: 6%;
-    background-image: radial-gradient(circle,#ffffff, #a588d8, #9061e1, rgb(0, 0, 0));
+    background-color: #26004d;
+background-image: radial-gradient(at 78% 98%, rgb(109, 61, 125) 0, hsla(52, 94%, 68%, 0) 50%),
+radial-gradient(at 30% 69%, rgb(15, 9, 37) 0, hsla(253, 86%, 59%, 0) 50%),
+radial-gradient(at 40% 2%, rgb(169, 109, 248) 0, hsla(149, 91%, 70%, 0) 50%),
+radial-gradient(at 12% 5%, hsla(265, 94%, 55%, 1) 0, hsla(265, 94%, 55%, 0) 50%),
+radial-gradient(at 17% 97%, hsla(277, 85%, 66%, 1) 0, hsla(277, 85%, 66%, 0) 50%),
+radial-gradient(at 56% 49%, rgb(133, 50, 180) 0, hsla(218, 95%, 50%, 0) 50%),
+radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
 }
 .profileDane{
-    background-color: #ffffff;
+    background-color: #ffffff3e;
     border-radius: 10px;
-    color:#000000;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.362);
+    color:#ffffff;
     margin: 2%;
     padding: 2%;
     display: flex;
@@ -133,15 +144,15 @@ footer{
 }
 
 .logoutButton button{
-  background-color:#ffffff;
   padding: 5px 10px;
   font-weight: bold;
-  border-radius: 15px;
-  border: 3px solid #5d4685;
+  border-radius: 30px;
+  background-color:#7146bca6;
+  border: 3px solid #372850;
 }
 .logoutButton button:hover{
-    background-color:#7146bca6;
-    border: 3px solid #372850;
+  background-color:#712fa4;
+  border: 3px solid #3d1959c9;
   }
 .profileDane1{
     color:#000000;
@@ -153,7 +164,7 @@ footer{
     justify-items: center;
 }
 .profileDane1 h1, h3{
-    color:#7149ad;
+    color:#000000;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -161,21 +172,29 @@ footer{
     list-style-type:none;
     padding-left: 10%;
 }
+.profileDane1 ul{
+  background-color:#ffffffd1;
+  border-radius: 35px;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.429);
+  padding: 2%;
+  list-style-type:none;
+  padding-left: 10%;
+}
 .deleteButton{
     margin-top: 3%;
     display: flex;
     justify-content: right;
 }
 .deleteButton button{
-    background-color:#ffffff;
+    background-color:#8238bb00;
     padding: 5px 10px;
     font-weight: bold;
-    border-radius: 15px;
-    border: 3px solid #5d4685;
+    border-radius: 30px;
+    border: 3px solid #7d38c2;
   }
 .deleteButton button:hover{
-    background-color:#7146bca6;
-    border: 3px solid #372850;
+    background-color:#712fa4;
+    border: 3px solid #3d1959c9;
 }
 .table{
     margin: 0 auto;
@@ -271,4 +290,69 @@ td:nth-of-type(2) {
 .table_data{
   padding-top: 5px;
   text-align: center;
+}
+/* wallet */
+.bg-container3 {
+  height: 100vh;
+  background: url("https://assets.codepen.io/6060109/p1-elon-alt.png") no-repeat left bottom;
+  background-size: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+.inner-container3 {
+  height: 90%;
+  width: 80%;
+  position: relative;
+}
+
+.top-right3, .bottom-left3, .bottom-right3 {
+  position: absolute;
+}
+
+.top-left3 {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+}
+
+.top-right3 {
+  right: 0;
+  top: 3%;
+}
+
+.top-right3 button {
+  padding: 20px 40px;
+  background: #FE9C0B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.bottom-left3 {
+  bottom: 5%;
+  left: 0;
+  font-size: 50px;
+  color: #00FF6C;
+}
+
+.bottom-right3 {
+  right: 0;
+  bottom: 10%;
+  height: 70%;
+  width: 40%;
+  background-color: white;
+  border-radius: 15px;
+  overflow: scroll;
+}
+.wallet{
+  background-color: white;
+}
+.wallet_container{
+  background: linear-gradient(46.19deg, #000000 5.66%, #434343 94.35%);
 }
