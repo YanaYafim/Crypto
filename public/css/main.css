@@ -9,6 +9,7 @@ header{
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.747);
     position: fixed;
     width: 100%;
+    z-index: 9999;
 }
 .nav-link{
     color:#ffffff;
@@ -292,67 +293,73 @@ td:nth-of-type(2) {
   text-align: center;
 }
 /* wallet */
-.bg-container3 {
-  height: 100vh;
-  background: url("https://assets.codepen.io/6060109/p1-elon-alt.png") no-repeat left bottom;
-  background-size: 50%;
+.container2 {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  padding-bottom: 50px;
-  box-sizing: border-box;
-}
-
-.inner-container3 {
-  height: 90%;
-  width: 80%;
-  position: relative;
-}
-
-.top-right3, .bottom-left3, .bottom-right3 {
-  position: absolute;
-}
-
-.top-left3 {
-  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
-  font-size: 30px;
+  padding: 20px;
 }
-
-.top-right3 {
-  right: 0;
-  top: 3%;
-}
-
-.top-right3 button {
-  padding: 20px 40px;
-  background: #FE9C0B;
+.container2 button{
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #7e32bd;
   color: white;
   border: none;
   border-radius: 5px;
-  font-size: 18px;
-  font-weight: 400;
 }
-
-.bottom-left3 {
-  bottom: 5%;
-  left: 0;
-  font-size: 50px;
-  color: #00FF6C;
+.container2 button:hover{
+  background-color: #2e1046;
 }
-
-.bottom-right3 {
-  right: 0;
-  bottom: 10%;
-  height: 70%;
+.button-container2 {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+}
+.content-container2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2% 5%;
+}
+.cardwallet{
+  height: 300px;
+  width: 50%;
+  background-color:white;
+  margin-right: 5%;
+  color:#000;
+  padding: 2%;
+  border-radius: 30px;
+}
+.info2 {
+  text-align: center;
+}
+.walletImg{
+  height: 300px;
   width: 40%;
-  background-color: white;
-  border-radius: 15px;
-  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image: url(../img/BMW_logo.png);
 }
-.wallet{
-  background-color: white;
+.buttonBuy {
+  margin-top: 10%;
+  padding: 0 40%;
 }
-.wallet_container{
-  background: linear-gradient(46.19deg, #000000 5.66%, #434343 94.35%);
+.buttonBuy button{
+  padding: 10px 40px;
+  background-color:#ffffff;
+  color: rgb(91, 30, 111);
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  border: 4px solid #8421b5;
 }
+.price2 {
+  color:#dd0b0b;
+  margin-top: 10%;
+  font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+}
+
