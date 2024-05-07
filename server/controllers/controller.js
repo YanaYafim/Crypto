@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
+const axios = require('axios');
 
 const handleErrors = (err) => {
   console.log(err.message, err.code);
@@ -102,5 +103,12 @@ exports.homepage = async (req, res) => {
     res.cookie('jwt', '', { maxAge: 1 });
     res.redirect('/');
   }
-
+  
+module.exports.cur = async (req, res) => {
+  try {
+    res.render('homeAfter');
+} catch (error) {
+    console.error('Error:', error);
+}
+}
 
