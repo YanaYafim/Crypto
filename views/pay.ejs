@@ -2,10 +2,10 @@
   <div class="container5">
     <a href="/wallet" class="buttonR">← Back</a>
     <h1 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">PayPage</h1>
-    <label class="crypto-coin" for="cryptoCoin">Coin</label>
-    <input type="text" class="field" id="cryptoCoin" placeholder="Coin">
     <label for="usdPayment">USD</label>
-    <input type="text" class="field" id="usdPayment" placeholder="USD">
+    <input type="number" class="field" id="usdPayment" placeholder="USD" min="1" step="0.01" oninput="formatInput(this)">
+    <label class="crypto-coin" for="cryptoCoin">Coin</label>
+    <input type="number" class="field" id="cryptoCoin" placeholder="Coin" min="0" step="0.0000000001" oninput="formatInput(this)">
     <div class="button-container5">
       <button class="buttonPay" id="copyButton" onclick="buyButtonClick()">Buy</button>
     </div>
@@ -13,6 +13,14 @@
 </div>
 
 <script>
+  function formatInput(input) {
+    if (input.id === "cryptoCoin") {
+      input.value = parseFloat(input.value).toFixed(10);
+    } else {
+      input.value = parseFloat(input.value).toFixed(2);
+    }
+  }
+
   let coinValue = 0;
   let usdValue = 0;
   const btnBlock = document.querySelector(".button-container5");

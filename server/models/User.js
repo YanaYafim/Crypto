@@ -21,23 +21,23 @@ const userSchema = new mongoose.Schema({
   },
   coins: {
     Bitcoin: {
-      type: String,
+      type: Number,
       default: 0,
     },
     Ethereum: {
-      type: String,
+      type: Number,
       default: 0,
     },
     Dogecoin: {
-      type: String,
+      type: Number,
       default: 0,
     },
     Ripple: {
-      type: String,
+      type: Number,
       default: 0,
     },
     ShibaInu: {
-      type: String,
+      type: Number,
       default: 0,
     },
   },
