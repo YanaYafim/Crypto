@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken')
 const cController = require('../controllers/controller');
+const sController = require('../controllers/stripeController');
 const User = require("../models/User");
 const { requireAuth, checkUser } = require('../middleware/authMiddleware');
 
@@ -13,6 +14,8 @@ router.get('/login', cController.login_get);
 router.post('/login', cController.login_post);
 router.get('/logout', cController.logout_get);
 router.get('/wallet/buy-crypto', cController.crypto_to_cookie);
+router.get('/pay/stripe', sController.generatePurchaseLink);
+router.get('/pay/payment-success', sController.successPayment);
 router.get('/homeAfter', requireAuth, cController.cur);
 router.get('/profile', requireAuth, (req, res) => {
     res.render('profile', { user: res.locals.user });

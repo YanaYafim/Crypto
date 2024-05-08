@@ -1,10 +1,32 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-const product = {
-    name: "Name", // Product Name
-    price: 0 // Product Price
-}
+const jwt = require('jsonwebtoken');
+const User = require("../models/User");
 
-const generatePurchaseLink = async () => {
+const maxAge = 3 * 24 * 60 * 60;
+const createToken = (id) => {
+  return jwt.sign({ id }, 'net secret', {
+    expiresIn: maxAge
+  });
+};
+
+let coinGlobal; // Declare coinGlobal variable outside of route handler
+let usdValueGlobal; // Declare usdValueGlobal variable outside of route handler
+
+const generatePurchaseLink = async (req, res) => {
+  const coin = {
+    coinName: req.query.coinName,
+    coinValue: req.query.coinValue
+  }
+  const usdValue = req.query.usdValue;
+
+  coinGlobal = coin;
+  usdValueGlobal = usdValue;
+
+  const product = {
+    name: `${coin.coinValue} ${coin.coinName}s `,
+    price: usdValue
+  }
+
   try {
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
@@ -21,15 +43,29 @@ const generatePurchaseLink = async () => {
         },
       ],
       mode: 'payment',
-      success_url: '/success',
-      cancel_url: '/cancel',
+      success_url: 'http://localhost:3000/pay/payment-success',
+      cancel_url: 'http://localhost:3000/pay',
     });
-    console.log(session.url)
-    return session.url;
+    console.log(session.url);
+    res.redirect(session.url);
   } catch (error) {
     console.error('Error:', error);
     throw new Error('An error occurred while generating purchase link');
   }
 };
 
-module.exports = { generatePurchaseLink };
+const successPayment = async (req, res) => {
+  const token_ = req.cookies.jwt;
+  const decodedToken = jwt.verify(token_, 'net secret');
+  const userId = decodedToken.id;
+
+  const recipient = await User.findById(userId);
+  recipient.coins[coinGlobal.coinName] = coinGlobal.coinValue;
+  await recipient.save();
+  const token = createToken(userId);
+  res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+  console.log(`Successfully added ${coinGlobal.coinValue} ${coinGlobal.coinName}s to user with ID ${userId}`);
+  res.redirect('/wallet');
+}
+
+module.exports = { generatePurchaseLink, successPayment };

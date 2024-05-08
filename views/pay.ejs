@@ -1,13 +1,42 @@
 <div class="pay">
-<div class="container5">
+  <div class="container5">
     <a href="/wallet" class="buttonR">← Back</a>
     <h1 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">PayPage</h1>
-    <label for="cryptoCoin">Coin</label>
-    <input type="text" class="field" id="cryptoCoin" placeholder="BTC">
+    <label class="crypto-coin" for="cryptoCoin">Coin</label>
+    <input type="text" class="field" id="cryptoCoin" placeholder="Coin">
     <label for="usdPayment">USD</label>
     <input type="text" class="field" id="usdPayment" placeholder="USD">
     <div class="button-container5">
-      <button class="buttonPay" id="copyButton">Buy</button>
+      <button class="buttonPay" id="copyButton" onclick="buyButtonClick('Shiba-Inu')">Buy</button>
     </div>
+  </div>
 </div>
-</div>
+
+<script>
+  let coinValue = 0;
+  let usdValue = 0;
+
+  const cryptoCoinInput = document.getElementById("cryptoCoin");
+  const cryptoCoinLabel = document.querySelector(".crypto-coin");
+  const usdPaymentInput = document.getElementById("usdPayment");
+  cryptoCoinInput.value = coinValue;
+  usdPaymentInput.value = usdValue;
+  cryptoCoinInput.placeholder = getCookie("coin");
+  cryptoCoinLabel.textContent = getCookie("coin");
+
+  function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : null;
+  }
+
+  function buyButtonClick(coinName) {
+    try {
+      coinValue = cryptoCoinInput.value;
+      usdValue = usdPaymentInput.value;
+      
+      window.location.href = `/pay/stripe?coinValue=${coinValue}&usdValue=${usdValue}&coinName=${coinName}`;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+</script>
