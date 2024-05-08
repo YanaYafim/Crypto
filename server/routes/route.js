@@ -32,5 +32,11 @@ router.delete('/profile-delete', requireAuth, async (req, res) => {
 router.get('/wallet', requireAuth, (req, res) => {
   res.render('wallet');
 });
+router.get('/edit', requireAuth, (req, res) => {
+  res.render('edit');
+});
+router.get('/pay', requireAuth, (req, res) => {
+  res.render('pay');
+});
 
 module.exports = router;

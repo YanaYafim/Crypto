@@ -421,4 +421,78 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
   font-weight: bold;
   text-align: center;
 }
+/* pay */
+.pay {
+  background-color: #000000;
+background-image: radial-gradient(at 78% 98%, rgb(0, 0, 0) 0, hsla(52, 94%, 68%, 0) 50%),
+radial-gradient(at 30% 69%, rgb(111, 36, 173) 0, hsla(253, 86%, 59%, 0) 50%),
+radial-gradient(at 40% 2%, rgb(0, 0, 0) 0, hsla(149, 91%, 70%, 0) 50%),
+radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
+radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
+radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
+radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container5 {
+  width: 40%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.field {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  outline: none;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.field[readonly] {
+  background-color: #f0f0f0;
+}
+
+.button-container5 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.buttonPay {
+  background-color: white;
+  color: #000000;
+  border: 3px solid rgb(145, 43, 203);
+  border-radius: 30px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.buttonPay:hover {
+  background-color: rgba(172, 45, 215, 0.679);
+}
+.buttonR{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  justify-content: start;
+  text-decoration: none;
+  color:#932dbb;
+  font-size: 20px;
+}
+.container5 label{
+  color: black;
+  font-weight: bold;
+}
 

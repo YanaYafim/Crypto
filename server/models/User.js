@@ -19,6 +19,28 @@ const userSchema = new mongoose.Schema({
     required: [true, 'Please enter a password'],
     minlength: [6, 'Minimum password length is 6 characters'],
   },
+  coins: {
+    btc: {
+      type: String,
+      default: 0,
+    },
+    ethereum: {
+      type: String,
+      default: 0,
+    },
+    dogecoin: {
+      type: String,
+      default: 0,
+    },
+    ripple: {
+      type: String,
+      default: 0,
+    },
+    shibaInu: {
+      type: String,
+      default: 0,
+    },
+  },
 });
 
 
