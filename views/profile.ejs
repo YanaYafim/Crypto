@@ -10,9 +10,14 @@
                   </ul>
               </section> 
       </div>
-      <form class="logoutButton" action="/logout">
-          <button>Logout</button>
-      </form>
+      <div style="display: flex; flex-direction: row; justify-content: center;">
+        <form class="logoutButton" action="/logout">
+            <button>Logout</button>
+        </form>
+        <form class="logoutButton edit" action="/logout">
+          <button>Edit</button>
+        </form>
+      </div>
       <form class="deleteButton" id="deleteAccountButton">
           <button type="submit">Delete account</button>
       </form>

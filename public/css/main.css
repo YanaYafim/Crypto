@@ -5,23 +5,30 @@
     font-family: "Roboto Mono", monospace;
 }
 header{
-    background-color: #6c27b1 !important;
+    /* background-color: #7527b1 !important; */
+    background-image: linear-gradient(to right, #3b125a 0%, rgb(29, 28, 30) 50%);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.747);
+    border-bottom:3px solid rgb(108, 30, 168);
     position: fixed;
     width: 100%;
     z-index: 9999;
+}
+.bj{
+  box-shadow:inset 2px 2px 2px 0px rgba(115, 30, 175, 0.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
 }
 .nav-link{
     color:#ffffff;
 }
 .navbar-brand{
     padding: 0px 0px 0px 30px;
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
-    color:#ffffff;
+    color:#000000;
 }
-.navbar-nav ul{
-background-color:#00000000;
+.navbar-nav a:hover{
+ color:#9111db !important;
 }
 .carousel-innerr{
     background-image: url(../img/slider4.jpg);
@@ -106,31 +113,33 @@ footer{
 }
 .formlog button{
   background-color:#9c74e0;
-  padding: 5px 10px;
+  padding: 5px 15px;
   font-weight: bold;
   border-radius: 15px;
   border: 3px solid #5d4685;
 }
 .formlog button:hover{
-    background-color:#543f78;
+    transition: background-color 0.2s ease 0s;
+    background-color:#633d8c;
     border: 3px solid #372850;
   }
 
 .profile{
     padding: 6%;
-    background-color: #26004d;
-background-image: radial-gradient(at 78% 98%, rgb(109, 61, 125) 0, hsla(52, 94%, 68%, 0) 50%),
-radial-gradient(at 30% 69%, rgb(15, 9, 37) 0, hsla(253, 86%, 59%, 0) 50%),
-radial-gradient(at 40% 2%, rgb(169, 109, 248) 0, hsla(149, 91%, 70%, 0) 50%),
-radial-gradient(at 12% 5%, hsla(265, 94%, 55%, 1) 0, hsla(265, 94%, 55%, 0) 50%),
-radial-gradient(at 17% 97%, hsla(277, 85%, 66%, 1) 0, hsla(277, 85%, 66%, 0) 50%),
-radial-gradient(at 56% 49%, rgb(133, 50, 180) 0, hsla(218, 95%, 50%, 0) 50%),
-radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
+    background-color: #000000;
+    background-image: radial-gradient(at 78% 98%, rgb(0, 0, 0) 0, hsla(52, 94%, 68%, 0) 50%),
+    radial-gradient(at 30% 69%, rgb(111, 36, 173) 0, hsla(253, 86%, 59%, 0) 50%),
+    radial-gradient(at 40% 2%, rgb(0, 0, 0) 0, hsla(149, 91%, 70%, 0) 50%),
+    radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
+    radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
+    radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
+    radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);
+
 }
 .profileDane{
-    background-color: #ffffff3e;
+    background-color: #ffffff15;
     border-radius: 10px;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.362);
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.578);
     color:#ffffff;
     margin: 2%;
     padding: 2%;
@@ -138,6 +147,7 @@ radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
     flex-direction: column;
     justify-content: center;
     justify-items: center;
+    
 }
 .logoutButton{
     display: flex;
@@ -145,15 +155,25 @@ radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
 }
 
 .logoutButton button{
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
   padding: 5px 10px;
   font-weight: bold;
   border-radius: 30px;
-  background-color:#7146bca6;
-  border: 3px solid #372850;
+  background: rgb(255, 255, 255);
+background: linear-gradient(0deg, rgb(80, 12, 129) 0%, rgb(139, 2, 251) 100%);
+  border: 3px solid #010101;
 }
 .logoutButton button:hover{
-  background-color:#712fa4;
-  border: 3px solid #3d1959c9;
+  transition: all 2s ease 0s;
+  background: rgb(48, 48, 48);
+background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
+  border: 3px solid #000000;
+  }
+  .edit button{
+    margin-left: 50px;
+    padding: 0 28px;
   }
 .profileDane1{
     color:#000000;
@@ -165,7 +185,8 @@ radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
     justify-items: center;
 }
 .profileDane1 h1, h3{
-    color:#000000;
+    color:#ffffff;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
     text-align: center;
     margin-bottom: 20px;
 }
@@ -187,15 +208,22 @@ radial-gradient(at 23% 1%, rgb(190, 177, 210) 0, hsla(26, 88%, 64%, 0) 50%);
     justify-content: right;
 }
 .deleteButton button{
-    background-color:#8238bb00;
-    padding: 5px 10px;
-    font-weight: bold;
-    border-radius: 30px;
-    border: 3px solid #7d38c2;
+  box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, 0.274),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  color:#dbdbdb;
+  text-shadow: 2px 2px 2px #000;
+ padding: 5px 15px;
+ border-radius: 30px;
+ background: rgba(255, 255, 255, 0.403);
+background: linear-gradient(0deg, rgba(80, 12, 129, 0.495) 0%, rgba(139, 2, 251, 0.423) 100%);
+ border: 3px solid #010101;
   }
 .deleteButton button:hover{
-    background-color:#712fa4;
-    border: 3px solid #3d1959c9;
+  transition: all 2s ease 0s;
+  background: rgb(48, 48, 48);
+background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
+  border: 3px solid #000000;
 }
 .table{
     margin: 0 auto;
@@ -251,6 +279,14 @@ body {
   overflow-x: auto;
 }
 
+.tablec {
+  background: rgba(255, 255, 255, .95);
+  color: #000;
+  text-align: right;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-sizing: border-box;
+}
 .newCryptoTable table {
   background: rgba(255, 255, 255, .95);
   color: #000;
@@ -259,9 +295,14 @@ body {
   border-collapse: collapse;
   box-sizing: border-box;
 }
-
 .newCryptoTable tr {
   border-bottom: 1px solid #ccc;
+}
+.newCryptoTable tr:hover {
+  background-color:#602d943b;
+}
+.tablec th {
+  background-color:#612d94 !important;
 }
 
 .newCryptoTable th {
@@ -301,15 +342,22 @@ td:nth-of-type(2) {
   padding: 20px;
 }
 .container2 button{
-  margin-right: 10px;
-  padding: 10px 20px;
-  background-color: #7e32bd;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, 0.274),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  color:#dbdbdb;
+  text-shadow: 2px 2px 2px #000;
+ padding: 5px 15px;
+ border-radius: 15px;
+ background: rgba(255, 255, 255, 0.403);
+background: linear-gradient(0deg, rgba(115, 18, 183, 0.495) 0%, rgba(139, 2, 251, 0.771) 100%);
+ border: 3px solid #010101;
 }
 .container2 button:hover{
-  background-color: #2e1046;
+  transition: all 0.5s ease 0s;
+  background: rgb(48, 48, 48);
+background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
+  border: 3px solid #000000;
 }
 .button-container2 {
   margin-top: 5%;
@@ -325,11 +373,12 @@ td:nth-of-type(2) {
 .cardwallet{
   height: 300px;
   width: 50%;
-  background-color:white;
+  background-color:rgb(223, 223, 223);
   margin-right: 5%;
   color:#000;
   padding: 2%;
-  border-radius: 30px;
+  border-radius: 35px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.429);
 }
 .info2 {
   text-align: center;
@@ -340,24 +389,34 @@ td:nth-of-type(2) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url(../img/BMW_logo.png);
+  align-items:center;
+  background: url(../img/bitcoin.png) no-repeat;
+  background-position: 50% 0%;
 }
 .buttonBuy {
-  margin-top: 10%;
-  padding: 0 40%;
+  padding: 15% 0 0 0;
 }
 .buttonBuy button{
-  padding: 10px 40px;
-  background-color:#ffffff;
-  color: rgb(91, 30, 111);
+  box-shadow:inset 2px 2px 2px 0px rgba(255, 255, 255, 0.274),
+  7px 7px 20px 0px rgba(0,0,0,.1),
+  4px 4px 5px 0px rgba(0,0,0,.1);
+  color:#000000;
   font-weight: bold;
-  border: none;
-  border-radius: 30px;
-  border: 4px solid #8421b5;
+ padding: 5px 35px;
+ border-radius: 30px;
+ background: rgba(255, 255, 255, 0.923);
+ border: 4px solid #9500ff;
+ 
+}
+.buttonBuy button:hover{
+  transition: all 0.5s ease 0s;
+  background: rgb(202, 138, 255);
+  border: 4px solid #9500ff;
+  
 }
 .price2 {
   color:#dd0b0b;
-  margin-top: 10%;
+  margin-top: 20%;
   font-size: 50px;
   font-weight: bold;
   text-align: center;
