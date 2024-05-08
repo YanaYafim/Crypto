@@ -7,7 +7,7 @@
     <label for="usdPayment">USD</label>
     <input type="text" class="field" id="usdPayment" placeholder="USD">
     <div class="button-container5">
-      <button class="buttonPay" id="copyButton" onclick="buyButtonClick('Shiba-Inu')">Buy</button>
+      <button class="buttonPay" id="copyButton" onclick="buyButtonClick()">Buy</button>
     </div>
   </div>
 </div>
@@ -15,7 +15,9 @@
 <script>
   let coinValue = 0;
   let usdValue = 0;
-
+  const btnBlock = document.querySelector(".button-container5");
+  const sss = getCookie("coin");
+  btnBlock.innerHTML = `<button class="buttonPay" id="copyButton" onclick="buyButtonClick('${sss}')">Buy</button>`;
   const cryptoCoinInput = document.getElementById("cryptoCoin");
   const cryptoCoinLabel = document.querySelector(".crypto-coin");
   const usdPaymentInput = document.getElementById("usdPayment");
@@ -33,7 +35,7 @@
     try {
       coinValue = cryptoCoinInput.value;
       usdValue = usdPaymentInput.value;
-      
+
       window.location.href = `/pay/stripe?coinValue=${coinValue}&usdValue=${usdValue}&coinName=${coinName}`;
     } catch (error) {
       console.log(error);
