@@ -12,6 +12,7 @@ router.post('/signup', cController.signup_post);
 router.get('/login', cController.login_get);
 router.post('/login', cController.login_post);
 router.get('/logout', cController.logout_get);
+router.get('/wallet/buy-crypto', cController.crypto_to_cookie);
 router.get('/homeAfter', requireAuth, cController.cur);
 router.get('/profile', requireAuth, (req, res) => {
     res.render('profile', { user: res.locals.user });

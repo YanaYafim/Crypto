@@ -19,7 +19,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
             <div class="content-container2">
                 <div class="cardwallet">
                     <div class="info2">
-                        <h1 style="margin-bottom: 20px;">Your Bitcoin wallet</h1>
+                        <h1 class="coin-name" style="margin-bottom: 20px;">Bitcoin</h1>
                         <p>Last Name: Doe</p>
                         <p>Other Information</p>
                     </div>
@@ -29,7 +29,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                         <span class="price2">$100</span>
                     </div>
                     <div class="buttonBuy">
-                        <button><a class="nav-link" href="/pay">Buy Bitcoin</a></button>
+                        <button onclick="handleBuyButtonClick('Bitcoin')">Buy Bitcoin</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
             <div class="content-container2">
                 <div class="cardwallet">
                     <div class="info2">
-                        <h1 style="margin-bottom: 20px;">Your Ethereum wallet</h1>
+                        <h1 class="coin-name" style="margin-bottom: 20px;">Ethereum</h1>
                         <p>Last Name: Doe</p>
                         <p>Other Information</p>
                     </div>
@@ -48,7 +48,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                         <span class="price2">$100</span>
                     </div>
                     <div class="buttonBuy">
-                        <button><a class="nav-link" href="/pay">Buy Ethereum</a></button>
+                        <button onclick="handleBuyButtonClick('Ethereum')">Buy Ethereum</button>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
           <div class="content-container2">
               <div class="cardwallet">
                   <div class="info2">
-                      <h1 style="margin-bottom: 20px;">Your Dogecoin wallet</h1>
+                      <h1 class="coin-name" style="margin-bottom: 20px;">Dogecoin</h1>
                       <p>Last Name: Doe</p>
                       <p>Other Information</p>
                   </div>
@@ -67,7 +67,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                       <span class="price2">$100</span>
                   </div>
                   <div class="buttonBuy">
-                      <button><a class="nav-link" href="/pay">Buy Dogecoin</a></button>
+                      <button onclick="handleBuyButtonClick('Dogecoin')">Buy Dogecoin</button>
                   </div>
               </div>
           </div>
@@ -76,7 +76,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
         <div class="content-container2">
             <div class="cardwallet">
                 <div class="info2">
-                    <h1 style="margin-bottom: 20px;">Your Ripple wallet</h1>
+                    <h1 class="coin-name" style="margin-bottom: 20px;">Ripple</h1>
                     <p>Last Name: Doe</p>
                     <p>Other Information</p>
                 </div>
@@ -86,7 +86,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                     <span class="price2">$100</span>
                 </div>
                 <div class="buttonBuy">
-                    <button><a class="nav-link" href="/pay">Buy Ripple</a></button>
+                    <button onclick="handleBuyButtonClick('Ripple')">Buy Ripple</button>
                 </div>
             </div>
         </div>
@@ -95,7 +95,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
       <div class="content-container2">
           <div class="cardwallet">
               <div class="info2">
-                  <h1 style="margin-bottom: 20px;">Your Shiba Inu wallet</h1>
+                  <h1 class="coin-name" style="margin-bottom: 20px;">Shiba Inu</h1>
                   <p>Last Name: Doe</p>
                   <p>Other Information</p>
               </div>
@@ -105,7 +105,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                   <span class="price2">$100</span>
               </div>
               <div class="buttonBuy">
-                  <button><a class="nav-link" href="/pay">Buy Shiba Inu</a></button>
+                  <button onclick="handleBuyButtonClick('Shiba-Inu')">Buy Shiba Inu</button>
               </div>
           </div>
       </div>
@@ -114,42 +114,34 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
 </div>
 </div>
 <script>
-const tabContainer = document.querySelector("#parent");
-const navList = tabContainer.querySelectorAll(".menu button");
-const tabList = tabContainer.querySelectorAll(".tab");
+    const tabContainer = document.querySelector("#parent");
+    const navList = tabContainer.querySelectorAll(".menu button");
+    const tabList = tabContainer.querySelectorAll(".tab");
+    
+    for (let i = 0; i < navList.length; i++) {
+        navList[i].addEventListener('click', (evt) => {
+            let currentLink = tabContainer.querySelector("button.active");
+            let currentTab = tabContainer.querySelector(".tab.active");
+    
+            currentLink.classList.remove("active");
+            navList[i].classList.add("active");
+    
+            currentTab.classList.remove("active");
+            tabList[i].classList.add("active");
+    
+            tabList[i].querySelector(".content-container2").classList.add("active");
+        });
+    }
 
-for (let i = 0; i < navList.length; i++) {
-  navList[i].addEventListener('click', (evt) => {
-    let currentLink = tabContainer.querySelector("button.active");
-    let currentTab = tabContainer.querySelector(".tab.active");
-
-    currentLink.classList.remove("active");
-    navList[i].classList.add("active");
-
-    currentTab.classList.remove("active");
-    tabList[i].classList.add("active");
-
-    tabList[i].querySelector(".content-container2").classList.add("active");
-
-    form_.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    try {
-            const res = await fetch("/wallet/buy-crypto", {
-                method: "POST",
-                body: JSON.stringify({ email, password }),
-                headers: { "Content-Type": "application/json" }
-            });
-            const data = await res.json();
-            console.log(data);
-            
-            if (data.user) {
-                location.assign("/pay");
-            }
+    function handleBuyButtonClick(coinName) {
+        try {
+            window.location.href = `/wallet/buy-crypto?coinName=${coinName}`;
         } catch (error) {
             console.log(error);
         }
-      });
-  });
-}
-</script> 
+    }
+</script>
+
+    
+    
+    
