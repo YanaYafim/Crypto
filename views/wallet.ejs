@@ -6,34 +6,6 @@ radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
 radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
 radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
 radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
-<!-- <div class="container2">
-    <div class="button-container2">
-      <button>Bitcoin</button>
-      <button>Ethereum</button>
-      <button>Dogecoin</button>
-      <button>Ripple</button>
-      <button>Shiba Inu</button>
-    </div>
-  </div>
-  <div class="mainwallet">
-    <div class="content-container2">
-      <div class="cardwallet">
-        <div class="info2">
-          <h1 style="margin-bottom: 20px;">Your wallet</h1>
-          <p>Last Name: Doe</p>
-          <p>Other Information</p>
-        </div>
-      </div>
-      <div class="walletImg">
-        <div class="price2">
-            <span class="price2">$100</span>
-        </div>
-        <div class="buttonBuy">
-            <button><a class="nav-link" href="/pay">Buy</a></button>
-        </div>
-      </div>
-    </div>
-  </div> -->
   <div id="parent">
     <div class="menu">
         <button class="active">Bitcoin</button>
@@ -157,9 +129,27 @@ for (let i = 0; i < navList.length; i++) {
     currentTab.classList.remove("active");
     tabList[i].classList.add("active");
 
-    // Добавляем класс .active к дочернему элементу .content-container2 соответствующего таба
     tabList[i].querySelector(".content-container2").classList.add("active");
+
+    form_.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    try {
+            const res = await fetch("/wallet/buy-crypto", {
+                method: "POST",
+                body: JSON.stringify({ email, password }),
+                headers: { "Content-Type": "application/json" }
+            });
+            const data = await res.json();
+            console.log(data);
+            
+            if (data.user) {
+                location.assign("/pay");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+      });
   });
 }
-
-</script>  
+</script> 
