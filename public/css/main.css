@@ -496,3 +496,34 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);
   font-weight: bold;
 }
 
+#parent {
+	margin: 0 auto;
+  padding: 10% 0 ;
+	width: 90%;
+}
+
+.menu button {
+	margin-right: 5px;
+	display: inline-block;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+	border: 1px solid gray;
+}
+.menu button:hover {
+	background: #f8f8f8;
+}
+.menu button.active {
+	border-color: transparent;
+	background: #f2f2f2;
+}
+
+.tabs .tab:not(.active) {
+	display: none;
+}
+.tabs .tab {
+	padding: 10px;
+	background: #f2f2f2;
+	height: 300px;
+}
+

@@ -6,7 +6,7 @@ radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
 radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
 radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
 radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
-<div class="container2">
+<!-- <div class="container2">
     <div class="button-container2">
       <button>Bitcoin</button>
       <button>Ethereum</button>
@@ -33,5 +33,126 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
         </div>
       </div>
     </div>
+  </div> -->
+  <div id="parent">
+    <div class="menu">
+      <button class="active">Bitcoin</button>
+      <button>Ethereum</button>
+      <button>Dogecoin</button>
+      <button>Ripple</button>
+      <button>Shiba Inu</button>
+    </div>
+    <div class="tabs">
+      <div class="mainwallet tab active">
+        <div class="content-container2">
+          <div class="cardwallet">
+            <div class="info2">
+              <h1 style="margin-bottom: 20px;">Your wallet</h1>
+              <p>Last Name: Doe</p>
+              <p>Other Information</p>
+            </div>
+          </div>
+          <div class="walletImg">
+            <div class="price2">
+                <span class="price2">$100</span>
+            </div>
+            <div class="buttonBuy">
+                <button><a class="nav-link" href="/pay">Buy</a></button>
+            </div>
+          </div>
+      </div>
+      <div class="mainwallet tab ">
+        <div class="content-container2">
+          <div class="cardwallet">
+            <div class="info2">
+              <h1 style="margin-bottom: 20px;">Your wallet</h1>
+              <p>Last Name: Doe</p>
+              <p>Other Information</p>
+            </div>
+          </div>
+          <div class="walletImg">
+            <div class="price2">
+                <span class="price2">$100</span>
+            </div>
+            <div class="buttonBuy">
+                <button><a class="nav-link" href="/pay">Buy</a></button>
+            </div>
+          </div>
+      </div>
+      <div class="mainwallet tab">
+        <div class="content-container2">
+          <div class="cardwallet">
+            <div class="info2">
+              <h1 style="margin-bottom: 20px;">Your wallet</h1>
+              <p>Last Name: Doe</p>
+              <p>Other Information</p>
+            </div>
+          </div>
+          <div class="walletImg">
+            <div class="price2">
+                <span class="price2">$100</span>
+            </div>
+            <div class="buttonBuy">
+                <button><a class="nav-link" href="/pay">Buy</a></button>
+            </div>
+          </div>
+      </div>
+      <div class="mainwallet tab">
+        <div class="content-container2">
+          <div class="cardwallet">
+            <div class="info2">
+              <h1 style="margin-bottom: 20px;">Your wallet</h1>
+              <p>Last Name: Doe</p>
+              <p>Other Information</p>
+            </div>
+          </div>
+          <div class="walletImg">
+            <div class="price2">
+                <span class="price2">$100</span>
+            </div>
+            <div class="buttonBuy">
+                <button><a class="nav-link" href="/pay">Buy</a></button>
+            </div>
+          </div>
+      </div>
+      <div class="mainwallet tab">
+        <div class="content-container2">
+          <div class="cardwallet">
+            <div class="info2">
+              <h1 style="margin-bottom: 20px;">Your wallet</h1>
+              <p>Last Name: Doe</p>
+              <p>Other Information</p>
+            </div>
+          </div>
+          <div class="walletImg">
+            <div class="price2">
+                <span class="price2">$100</span>
+            </div>
+            <div class="buttonBuy">
+                <button><a class="nav-link" href="/pay">Buy</a></button>
+            </div>
+          </div>
+      </div>
+    </div>
   </div>
-</div>   
+
+
+</div> 
+<script>
+  const tabContainer = document.querySelector("#parent");
+const navList = tabContainer.querySelectorAll(".menu button");
+const tabList = tabContainer.querySelectorAll(".tab");
+
+for(let i = 0; i < navList.length; i++){
+  navList[i].addEventListener('click', (evt)=>{
+    let currentLink = tabContainer.querySelector("button.active");
+    let currentTab = tabContainer.querySelector(".tab.active");
+
+    currentLink.classList.remove("active");
+    navList[i].classList.add("active");
+    
+    currentTab.classList.remove("active");
+    tabList[i].classList.add("active");
+  })
+}
+</script>  
