@@ -149,12 +149,12 @@ footer{
     justify-items: center;
     
 }
-.logoutButton{
+.logoutButton, .editButton{
     display: flex;
     justify-content: center;
 }
 
-.logoutButton button{
+.logoutButton button, .editButton button{
   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
@@ -165,7 +165,7 @@ footer{
 background: linear-gradient(0deg, rgb(80, 12, 129) 0%, rgb(139, 2, 251) 100%);
   border: 3px solid #010101;
 }
-.logoutButton button:hover{
+.logoutButton button:hover, .editButton button:hover{
   transition: all 2s ease 0s;
   background: rgb(48, 48, 48);
 background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
