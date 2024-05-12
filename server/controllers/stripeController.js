@@ -9,8 +9,8 @@ const createToken = (id) => {
   });
 };
 
-let coinGlobal; // Declare coinGlobal variable outside of route handler
-let usdValueGlobal; // Declare usdValueGlobal variable outside of route handler
+let coinGlobal;
+let usdValueGlobal;
 
 const generatePurchaseLink = async (req, res) => {
   const coin = {
@@ -55,17 +55,26 @@ const generatePurchaseLink = async (req, res) => {
 };
 
 const successPayment = async (req, res) => {
-  const token_ = req.cookies.jwt;
-  const decodedToken = jwt.verify(token_, 'net secret');
-  const userId = decodedToken.id;
+  try {
+    const session = await stripe.checkout.sessions.retrieve(req.query.session_id);
+    if (session.payment_status === 'paid') {
+      const token_ = req.cookies.jwt;
+      const decodedToken = jwt.verify(token_, 'net secret');
+      const userId = decodedToken.id;
 
-  const recipient = await User.findById(userId);
-  recipient.coins[coinGlobal.coinName] = coinGlobal.coinValue;
-  await recipient.save();
-  const token = createToken(userId);
-  res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
-  console.log(`Successfully added ${coinGlobal.coinValue} ${coinGlobal.coinName}s to user with ID ${userId}`);
-  res.redirect('/wallet');
+      const recipient = await User.findById(userId);
+      recipient.coins[coinGlobal.coinName] = coinGlobal.coinValue;
+      await recipient.save();
+      const token = createToken(userId);
+      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+      console.log(`Successfully added ${coinGlobal.coinValue} ${coinGlobal.coinName}s to user with ID ${userId}`);
+      res.redirect('/wallet');
+    } else {
+      res.redirect('/homeAfter');
+    }
+  } catch (error) {
+    res.redirect('/payment-error');
+  }
 }
 
 module.exports = { generatePurchaseLink, successPayment };
