@@ -39,6 +39,8 @@ router.get('/wallet', requireAuth, (req, res) => {
 router.get('/edit', requireAuth, (req, res) => {
   res.render('edit');
 });
+router.put('/edit/update', requireAuth, cController.updateProf);
+router
 router.get('/pay', requireAuth, (req, res) => {
   res.render('pay');
 });
