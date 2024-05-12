@@ -12,10 +12,10 @@ router.get('/signup', cController.signup_get);
 router.post('/signup', cController.signup_post);
 router.get('/login', cController.login_get);
 router.post('/login', cController.login_post);
-router.get('/logout', cController.logout_get);
-router.get('/wallet/buy-crypto', cController.crypto_to_cookie);
-router.get('/pay/stripe', sController.generatePurchaseLink);
-router.get('/pay/payment-success', sController.successPayment);
+router.get('/logout', requireAuth, cController.logout_get);
+router.get('/wallet/buy-crypto', requireAuth, cController.crypto_to_cookie);
+router.get('/pay/stripe', requireAuth, sController.generatePurchaseLink);
+router.get('/pay/payment-success', requireAuth, sController.successPayment);
 router.get('/homeAfter', requireAuth, cController.cur);
 router.get('/profile', requireAuth, (req, res) => {
     res.render('profile', { user: res.locals.user });

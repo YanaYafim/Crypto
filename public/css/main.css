@@ -383,7 +383,7 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
 .info2 {
   text-align: center;
 }
-.walletImg{
+.walletImg1{
   height: 300px;
   width: 40%;
   display: flex;
@@ -391,6 +391,46 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
   justify-content: center;
   align-items:center;
   background: url(../img/bitcoin.png) no-repeat;
+  background-position: 50% 0%;
+}
+.walletImg2{
+  height: 300px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background: url(../img/ethereum.png) no-repeat;
+  background-position: 50% 0%;
+}
+.walletImg3{
+  height: 300px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background: url(../img/dogecoin.png) no-repeat;
+  background-position: 50% 0%;
+}
+.walletImg4{
+  height: 300px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background: url(../img/xrp.png) no-repeat;
+  background-position: 50% 0%;
+}
+.walletImg5{
+  height: 300px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  background: url(../img/shiba-inu.png) no-repeat;
   background-position: 50% 0%;
 }
 .buttonBuy {
@@ -415,9 +455,25 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
   
 }
 .price2 {
-  color:#dd0b0b;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20%;
+  text-align: center;
+}
+.priceC {
+  color:#000000;
+  text-shadow: 1px 2px 2px white;
   margin-top: 20%;
   font-size: 50px;
+  font-weight: bold;
+  text-align: center;
+  
+}
+.priceU{
+  border: 3px solid black;
+  background-color: rgba(0, 0, 0, 0.388);
+  border-radius: 30px;
+  font-size: 30px;
   font-weight: bold;
   text-align: center;
 }
