@@ -40,7 +40,11 @@ router.get('/edit', requireAuth, (req, res) => {
   res.render('edit');
 });
 router.put('/edit/update', requireAuth, cController.updateProf);
-router
+router.get('/convert', requireAuth, cController.crypto_to_cookie_convert);
+router.get('/wallet/convert', requireAuth, (req, res) => {
+  res.render('convert');
+});
+router.put('/wallet/convert/conversion', requireAuth, cController.updateConversion);
 router.get('/pay', requireAuth, (req, res) => {
   res.render('pay');
 });

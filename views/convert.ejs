@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Converter</title>
+</head>
+<body>
+<div class="pay">
+    <div class="container5">
+        <a href="/wallet" class="buttonR">← Back</a>
+        <div class="convert-error"></div>
+        <div class="convert-success"></div>
+        <h1 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Coin Converter</h1>
+        <label for="usdPayment" id="coinLabel">From</label>
+        <input type="number" class="field" id="usdPayment" placeholder="From" min="1" step="0.0000000001" oninput="formatInput(this); updateConversion()">
+        <label class="crypto-coin" for="cryptoCoin">Coin</label>
+        <input type="text" class="field" id="To" placeholder="To" readonly>
+        <select id="cryptoList" onchange="updateConversion()"></select>
+        <div class="button-container5">
+            <button class="buttonPay" id="copyButton">Convert</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        getMarketData();
+        setInterval(getMarketData, 10000);
+    });
+
+    let btcPrice, ethPrice, dogePrice, xrpPrice, shibPrice;
+
+    function getMarketData() {
+        getCryptoCompare();
+    }
+
+    function getCryptoCompare() {
+        $.when(
+            $.get("https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,DOGE,XRP,SHIB&tsyms=USD")
+        ).done(function (data) {
+            btcPrice = parseFloat(data.RAW.BTC.USD.PRICE);
+            ethPrice = parseFloat(data.RAW.ETH.USD.PRICE);
+            dogePrice = parseFloat(data.RAW.DOGE.USD.PRICE);
+            xrpPrice = parseFloat(data.RAW.XRP.USD.PRICE);
+            shibPrice = parseFloat(data.RAW.SHIB.USD.PRICE);
+            updateConversion();
+        });
+    }
+
+    function formatInput(input) {
+        input.value = parseFloat(input.value).toFixed(10);
+    }
+
+    function updateConversion() {
+        const fromValue = document.getElementById('usdPayment').value;
+        const toCurrency = document.getElementById('cryptoList').value;
+        let price;
+
+        switch (toCurrency) {
+            case 'Bitcoin':
+                price = btcPrice;
+                break;
+            case 'Ethereum':
+                price = ethPrice;
+                break;
+            case 'Dogecoin':
+                price = dogePrice;
+                break;
+            case 'Ripple':
+                price = xrpPrice;
+                break;
+            case 'ShibaInu':
+                price = shibPrice;
+                break;
+        }
+
+        if (!isNaN(fromValue) && !isNaN(price)) {
+            const convertedValue = (fromValue * 100) / price;
+            document.getElementById('To').value = convertedValue.toFixed(10);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const coinCookie = getCookie('coin');
+        const cryptoList = document.getElementById('cryptoList');
+        const coins = ['Bitcoin', 'ShibaInu', 'Ripple', 'Dogecoin', 'Ethereum'];
+
+        coins.forEach(function(coin) {
+            if (coin !== coinCookie) {
+                const option = document.createElement('option');
+                option.value = coin;
+                option.text = coin;
+                cryptoList.add(option);
+            }
+        });
+
+        getMarketData();
+    });
+
+    function getCookie(name) {
+        const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+        return cookieValue ? cookieValue.pop() : null;
+    }
+</script>
+<script src="/js/convert.js"></script>
+</body>
+</html>

@@ -30,6 +30,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                     </div>
                     <div class="buttonBuy">
                         <button onclick="handleBuyButtonClick('Bitcoin', parseFloat(document.getElementById('btcPrice').textContent.trim().replace('$', '')))">Buy Bitcoin</button>
+                        <button onclick="handleBuyButtonClickCon('Bitcoin', parseFloat(document.getElementById('btcPrice').textContent.trim().replace('$', '')))">Convert Bitcoin</button>
                     </div>
                 </div>
             </div>
@@ -49,6 +50,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                     </div>
                     <div class="buttonBuy">
                         <button onclick="handleBuyButtonClick('Ethereum', parseFloat(document.getElementById('ethPrice').textContent.trim().replace('$', '')))">Buy Ethereum</button>
+                        <button onclick="handleBuyButtonClickCon('Ethereum', parseFloat(document.getElementById('ethPrice').textContent.trim().replace('$', '')))">Convert Ethereum</button>
                     </div>
                 </div>
             </div>
@@ -68,7 +70,8 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                   </div>
                   <div class="buttonBuy">
                     <button onclick="handleBuyButtonClick('Dogecoin', parseFloat(document.getElementById('dogePrice').textContent.trim().replace('$', '')))">Buy Dogecoin</button>
-                  </div>
+                    <button onclick="handleBuyButtonClickCon('Dogecoin', parseFloat(document.getElementById('dogePrice').textContent.trim().replace('$', '')))">Convert Dogecoin</button>
+                </div>
               </div>
           </div>
       </div>
@@ -87,6 +90,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                 </div>
                 <div class="buttonBuy">
                     <button onclick="handleBuyButtonClick('Ripple', parseFloat(document.getElementById('xrpPrice').textContent.trim().replace('$', '')))">Buy Ripple</button>
+                    <button onclick="handleBuyButtonClickCon('Ripple', parseFloat(document.getElementById('xrpPrice').textContent.trim().replace('$', '')))">Convert Ripple</button>
                 </div>
             </div>
         </div>
@@ -104,8 +108,9 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                <span class="priceC" id="shibPrice">$100.00</span>
                 <span id="shibChange" class="priceU">-2.1%</span>
               </div>
-              <div class="buttonBuy">
+              <div class="buttonBuy" style="display: flex;">
                   <button onclick="handleBuyButtonClick('ShibaInu', parseFloat(document.getElementById('shibPrice').textContent.trim().replace('$', '')))">Buy Shiba Inu</button>
+                  <button onclick="handleBuyButtonClickCon('ShibaInu', parseFloat(document.getElementById('shibPrice').textContent.trim().replace('$', '')))">Convert Shiba Inu</button>
               </div>
           </div>
       </div>
@@ -139,7 +144,15 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
     } catch (error) {
         console.log(error);
     }
-}
+    }
+
+    function handleBuyButtonClickCon(coinName, price) {
+    try {
+        window.location.href = `/convert?coinName=${coinName}&price=${price}`;
+    } catch (error) {
+        console.log(error);
+    }
+    }
 </script>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/js/tableCur.js"></script> -->
