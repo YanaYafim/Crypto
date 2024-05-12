@@ -5,7 +5,7 @@
     <label for="usdPayment">USD</label>
     <input type="number" class="field" id="usdPayment" placeholder="USD" min="1" step="0.01" oninput="formatInput(this)">
     <label class="crypto-coin" for="cryptoCoin">Coin</label>
-    <input type="number" class="field" id="cryptoCoin" placeholder="Coin" min="0" step="0.0000000001" oninput="formatInput(this)">
+    <input type="number" class="field" id="cryptoCoin" placeholder="Coin" min="0" step="0.0000000001" oninput="formatInput(this)" readonly>
     <div class="button-container5">
       <button class="buttonPay" id="copyButton" onclick="buyButtonClick()">Buy</button>
     </div>
@@ -13,6 +13,7 @@
 </div>
 
 <script>
+
   function formatInput(input) {
     if (input.id === "cryptoCoin") {
       input.value = parseFloat(input.value).toFixed(10);
@@ -21,8 +22,8 @@
     }
   }
 
-  let coinValue = 0;
-  let usdValue = 0;
+  let coinValue = 1;
+  let usdValue = getCookie("price");
   const btnBlock = document.querySelector(".button-container5");
   const sss = getCookie("coin");
   btnBlock.innerHTML = `<button class="buttonPay" id="copyButton" onclick="buyButtonClick('${sss}')">Buy</button>`;
@@ -50,3 +51,5 @@
     }
   }
 </script>
+
+<script src="js/convertFromToPay.js"></script>

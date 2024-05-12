@@ -19,9 +19,8 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
             <div class="content-container2">
                 <div class="cardwallet">
                     <div class="info2">
-                        <h1 class="coin-name" style="margin-bottom: 20px;">Bitcoin</h1>
-                        <p>Last Name: Doe</p>
-                        <p>Other Information</p>
+                        <h1 class="coin-name" style="margin-bottom: 20px; color:#ffe81e; -webkit-text-stroke: 2px rgb(251, 188, 0);">Bitcoin</h1>
+                        <p>Now you have: <strong><%= user.coins.Bitcoin %> $</strong></p>
                     </div>
                 </div>
                 <div class="walletImg1">
@@ -30,7 +29,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                         <span id="btcChange" class="priceU">-2.1%</span>
                     </div>
                     <div class="buttonBuy">
-                        <button onclick="handleBuyButtonClick('Bitcoin')">Buy Bitcoin</button>
+                        <button onclick="handleBuyButtonClick('Bitcoin', parseFloat(document.getElementById('btcPrice').textContent.trim().replace('$', '')))">Buy Bitcoin</button>
                     </div>
                 </div>
             </div>
@@ -39,9 +38,8 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
             <div class="content-container2">
                 <div class="cardwallet">
                     <div class="info2">
-                        <h1 class="coin-name" style="margin-bottom: 20px;">Ethereum</h1>
-                        <p>Last Name: Doe</p>
-                        <p>Other Information</p>
+                        <h1 class="coin-name" style="margin-bottom: 20px; color:#416eff; -webkit-text-stroke: 1px rgb(140, 171, 255);">Ethereum</h1>
+                        <p>Now you have: <strong><%= user.coins.Ethereum %> $</strong></p>
                     </div>
                 </div>
                 <div class="walletImg2">
@@ -50,7 +48,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                         <span id="ethChange" class="priceU">-2.1%</span>
                     </div>
                     <div class="buttonBuy">
-                        <button onclick="handleBuyButtonClick('Ethereum')">Buy Ethereum</button>
+                        <button onclick="handleBuyButtonClick('Ethereum', parseFloat(document.getElementById('ethPrice').textContent.trim().replace('$', '')))">Buy Ethereum</button>
                     </div>
                 </div>
             </div>
@@ -59,9 +57,8 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
           <div class="content-container2">
               <div class="cardwallet">
                   <div class="info2">
-                      <h1 class="coin-name" style="margin-bottom: 20px;">Dogecoin</h1>
-                      <p>Last Name: Doe</p>
-                      <p>Other Information</p>
+                      <h1 class="coin-name" style="margin-bottom: 20px; color:#ffd497; -webkit-text-stroke: 2px rgb(255, 166, 0);">Dogecoin</h1>
+                      <p>Now you have: <strong><%= user.coins.Dogecoin %> $</strong></p>
                   </div>
               </div>
               <div class="walletImg3">
@@ -70,7 +67,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                     <span id="dogeChange" class="priceU">-2.1%</span>
                   </div>
                   <div class="buttonBuy">
-                      <button onclick="handleBuyButtonClick('Dogecoin')">Buy Dogecoin</button>
+                    <button onclick="handleBuyButtonClick('Dogecoin', parseFloat(document.getElementById('dogePrice').textContent.trim().replace('$', '')))">Buy Dogecoin</button>
                   </div>
               </div>
           </div>
@@ -79,9 +76,8 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
         <div class="content-container2">
             <div class="cardwallet">
                 <div class="info2">
-                    <h1 class="coin-name" style="margin-bottom: 20px;">Ripple</h1>
-                    <p>Last Name: Doe</p>
-                    <p>Other Information</p>
+                    <h1 class="coin-name" style="margin-bottom: 20px; color:#b3b3b3; -webkit-text-stroke: 2px rgb(140, 140, 140);">Ripple</h1>
+                    <p>Now you have: <strong><%= user.coins.Ripple %> $</strong></p>
                 </div>
             </div>
             <div class="walletImg4">
@@ -90,7 +86,7 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
                     <span id="xrpChange" class="priceU">-2.1%</span>
                 </div>
                 <div class="buttonBuy">
-                    <button onclick="handleBuyButtonClick('Ripple')">Buy Ripple</button>
+                    <button onclick="handleBuyButtonClick('Ripple', parseFloat(document.getElementById('xrpPrice').textContent.trim().replace('$', '')))">Buy Ripple</button>
                 </div>
             </div>
         </div>
@@ -99,18 +95,17 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
       <div class="content-container2">
           <div class="cardwallet">
               <div class="info2">
-                  <h1 class="coin-name" style="margin-bottom: 20px;">Shiba Inu</h1>
-                  <p>Last Name: Doe</p>
-                  <p>Other Information</p>
+                  <h1 class="coin-name" style="margin-bottom: 20px; color:#fd4747; -webkit-text-stroke: 2px rgb(251, 0, 0);">Shiba Inu</h1>
+                  <p>Now you have: <strong><%= user.coins.ShibaInu %> $</strong></p>
               </div>
           </div>
           <div class="walletImg5">
               <div class="price2">
-                <span id="shibPrice" class="priceC">$100</span>
+               <span class="priceC" id="shibPrice">$100.00</span>
                 <span id="shibChange" class="priceU">-2.1%</span>
               </div>
               <div class="buttonBuy">
-                  <button onclick="handleBuyButtonClick('ShibaInu')">Buy Shiba Inu</button>
+                  <button onclick="handleBuyButtonClick('ShibaInu', parseFloat(document.getElementById('shibPrice').textContent.trim().replace('$', '')))">Buy Shiba Inu</button>
               </div>
           </div>
       </div>
@@ -138,15 +133,13 @@ radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);">
         });
     }
 
-    function handleBuyButtonClick(coinName) {
-        try {
-            window.location.href = `/wallet/buy-crypto?coinName=${coinName}`;
-        } catch (error) {
-            console.log(error);
-        }
+    function handleBuyButtonClick(coinName, price) {
+    try {
+        window.location.href = `/wallet/buy-crypto?coinName=${coinName}&price=${price}`;
+    } catch (error) {
+        console.log(error);
     }
+}
 </script>
-
-    
-    
-    
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/tableCur.js"></script> -->

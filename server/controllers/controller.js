@@ -114,6 +114,8 @@ module.exports.cur = async (req, res) => {
 
 module.exports.crypto_to_cookie = (req, res) => {
   const coinName = req.query.coinName;
+  const price = req.query.price;
   res.cookie('coin', coinName, { maxAge: 3 * 24 * 60 * 60 });
+  res.cookie('price', price, { maxAge: 3 * 24 * 60 * 60 });
   res.redirect('/pay');
 }
