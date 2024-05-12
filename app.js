@@ -8,6 +8,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = process.env.PORT || 3000; 
 connectDB();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
