@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
+const bcrypt = require('bcrypt');
 
 const handleErrors = (err) => {
   console.log(err.message, err.code);
@@ -14,6 +15,8 @@ const handleErrors = (err) => {
   // incorrect password
   if (err.message === 'incorrect password') {
     errors.password = 'That password is incorrect';
+  } else if (err.message === 'Password length update error') {
+    errors.password = 'Password must contains more than 5 symbols';
   }
 
   // duplicate email error
@@ -118,4 +121,42 @@ module.exports.crypto_to_cookie = (req, res) => {
   res.cookie('coin', coinName, { maxAge: 3 * 24 * 60 * 60 });
   res.cookie('price', price, { maxAge: 3 * 24 * 60 * 60 });
   res.redirect('/pay');
+}
+
+module.exports.updateProf = async (req, res) => {
+  const { username, email, newPassword } = req.body;
+
+  try {
+      const token_ = req.cookies.jwt;
+      const decodedToken = jwt.verify(token_, 'net secret');
+      const userId = decodedToken.id;
+
+      const user = await User.findById(userId);
+
+      if (!user) {
+          throw Error('User not found');
+      }
+
+      if (username) user.userName = username;
+      if (email) user.email = email;
+      if (newPassword.length >= 6) {
+          const salt = await bcrypt.genSalt();
+          let hashedPassword = await bcrypt.hash(newPassword, salt);
+          user.password = hashedPassword;
+      } else {
+          throw Error('Password length update error');
+      }
+
+      await user.save();
+
+      const token = createToken(user._id);
+      res.cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 });
+
+      res.status(200).json({ success: true, message: "Profile updated successfully" });
+  } catch (error) {
+      if (!res.headersSent) {
+          const errors = handleErrors(error);
+          res.status(400).json({ errors });
+      }
+  }
 }
