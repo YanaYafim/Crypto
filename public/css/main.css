@@ -25,7 +25,7 @@ header{
     padding: 0px 0px 0px 30px;
     font-size: 32px;
     font-weight: bold;
-    color:#000000;
+    color:#ffffff;
 }
 .navbar-nav a:hover{
   color:#9111db !important;
@@ -552,7 +552,8 @@ td:nth-of-type(2) {
   cursor: pointer;
 }
 .buttonPay:hover {
-  background-color: rgba(172, 45, 215, 0.679);
+  transition: all 0.5s ease 0s;
+  background-color: rgba(147, 45, 215, 0.679);
 }
 .buttonR{
   position: absolute;
