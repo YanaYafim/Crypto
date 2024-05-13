@@ -4,14 +4,14 @@ const jwt = require('jsonwebtoken')
 const cController = require('../controllers/controller');
 const sController = require('../controllers/stripeController');
 const User = require("../models/User");
-const { requireAuth, checkUser } = require('../middleware/authMiddleware');
+const { requireAuth, checkUser, requireNonAuth } = require('../middleware/authMiddleware');
 
 router.get('*', checkUser);
 router.get('/', cController.homepage);
-router.get('/signup', cController.signup_get);
-router.post('/signup', cController.signup_post);
-router.get('/login', cController.login_get);
-router.post('/login', cController.login_post);
+router.get('/signup', requireNonAuth, cController.signup_get);
+router.post('/signup', requireNonAuth, cController.signup_post);
+router.get('/login', requireNonAuth, cController.login_get);
+router.post('/login', requireNonAuth, cController.login_post);
 router.get('/logout', requireAuth, cController.logout_get);
 router.get('/wallet/buy-crypto', requireAuth, cController.crypto_to_cookie);
 router.get('/pay/stripe', requireAuth, sController.generatePurchaseLink);

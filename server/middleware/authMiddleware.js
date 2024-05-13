@@ -1,6 +1,22 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
+const requireNonAuth = (req, res, next) => {
+  const token = req.cookies.jwt;
+
+  if (token) {
+      jwt.verify(token, "mettel bach secret", (error, decodedToken) => {
+          if (error) {
+              next();
+          } else {
+              res.redirect("/account");
+          }
+      });
+  } else {
+      next();
+  }
+};
+
 const requireAuth = (req, res, next) => {
   const token = req.cookies.jwt;
 
@@ -41,4 +57,4 @@ const checkUser = (req, res, next) => {
 };
 
 
-module.exports = { requireAuth, checkUser };
+module.exports = { requireAuth, checkUser, requireNonAuth };
