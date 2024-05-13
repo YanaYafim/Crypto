@@ -13,10 +13,10 @@
         <div class="convert-success"></div>
         <h1 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Coin Converter</h1>
         <label for="usdPayment" id="coinLabel">From</label>
-        <input type="number" class="field" id="usdPayment" placeholder="From" min="1" step="0.0000000001" oninput="formatInput(this); updateConversion()">
+        <input style="border: 2px solid rgb(146, 38, 213);" type="number" class="field" id="usdPayment" placeholder="From" min="1" step="0.0000000001" oninput="formatInput(this); updateConversion()">
         <label class="crypto-coin" for="cryptoCoin">Coin</label>
-        <input type="text" class="field" id="To" placeholder="To" readonly>
-        <select id="cryptoList" onchange="updateConversion()"></select>
+        <input style="border: 2px solid rgb(146, 38, 213);" type="text" class="field" id="To" placeholder="To" readonly>
+        <select class="form-select form-select-sm" style="width: 40%; padding: 10px; border-radius: 20px; text-align: center; font-size: 20px; margin-bottom: 20px;" id="cryptoList" onchange="updateConversion()"></select>
         <div class="button-container5">
             <button class="buttonPay" id="copyButton">Convert</button>
         </div>

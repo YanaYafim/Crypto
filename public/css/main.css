@@ -28,7 +28,7 @@ header{
     color:#000000;
 }
 .navbar-nav a:hover{
- color:#9111db !important;
+  color:#9111db !important;
 }
 .carousel-innerr{
     background-image: url(../img/slider4.jpg);
@@ -149,32 +149,42 @@ footer{
     justify-items: center;
     
 }
-.logoutButton, .editButton{
-    display: flex;
-    justify-content: center;
-}
-
-.logoutButton button, .editButton button{
+.logoutButton button{
   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
-  padding: 5px 10px;
   font-weight: bold;
+  padding: 10px 20px;
   border-radius: 30px;
   background: rgb(255, 255, 255);
-background: linear-gradient(0deg, rgb(80, 12, 129) 0%, rgb(139, 2, 251) 100%);
+  background: linear-gradient(0deg, rgb(80, 12, 129) 0%, rgb(139, 2, 251) 100%);
   border: 3px solid #010101;
 }
-.logoutButton button:hover, .editButton button:hover{
+.logoutButton button:hover, .btn-edit:hover{
   transition: all 2s ease 0s;
   background: rgb(48, 48, 48);
-background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
+  background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
   border: 3px solid #000000;
   }
-  .edit button{
-    margin-left: 50px;
-    padding: 0 28px;
-  }
+.editButton{
+  margin-top: 13px;
+}
+
+.btn-edit{
+  margin-left: 20px;
+  text-decoration: none;
+  color:#000;
+  font-size: 24px;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  font-weight: bold;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgb(80, 12, 129) 0%, rgb(139, 2, 251) 100%);
+  border: 3px solid #010101;
+}
 .profileDane1{
     color:#000000;
     margin: 2%;
@@ -213,16 +223,16 @@ background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
   4px 4px 5px 0px rgba(0,0,0,.1);
   color:#dbdbdb;
   text-shadow: 2px 2px 2px #000;
- padding: 5px 15px;
- border-radius: 30px;
- background: rgba(255, 255, 255, 0.403);
-background: linear-gradient(0deg, rgba(80, 12, 129, 0.495) 0%, rgba(139, 2, 251, 0.423) 100%);
- border: 3px solid #010101;
+  padding: 5px 15px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.403);
+  background: linear-gradient(0deg, rgba(80, 12, 129, 0.495) 0%, rgba(139, 2, 251, 0.423) 100%);
+  border: 3px solid #010101;
   }
 .deleteButton button:hover{
   transition: all 2s ease 0s;
   background: rgb(48, 48, 48);
-background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
+  background: linear-gradient(0deg, rgb(63, 10, 101) 0%, rgb(107, 1, 193) 100%);
   border: 3px solid #000000;
 }
 .table{
@@ -347,16 +357,16 @@ td:nth-of-type(2) {
   4px 4px 5px 0px rgba(0,0,0,.1);
   color:#dbdbdb;
   text-shadow: 2px 2px 2px #000;
- padding: 5px 15px;
- border-radius: 15px;
- background: rgba(255, 255, 255, 0.403);
-background: linear-gradient(0deg, rgba(115, 18, 183, 0.495) 0%, rgba(139, 2, 251, 0.771) 100%);
- border: 3px solid #010101;
+  padding: 5px 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.403);
+  background: linear-gradient(0deg, rgba(115, 18, 183, 0.495) 0%, rgba(139, 2, 251, 0.771) 100%);
+  border: 3px solid #010101;
 }
 .container2 button:hover{
   transition: all 0.5s ease 0s;
   background: rgb(48, 48, 48);
-background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
+  background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
   border: 3px solid #000000;
 }
 .button-container2 {
@@ -448,10 +458,10 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
   4px 4px 5px 0px rgba(0,0,0,.1);
   color:#000000;
   font-weight: bold;
- padding: 5px 35px;
- border-radius: 30px;
- background: rgba(255, 255, 255, 0.923);
- border: 4px solid #9500ff;
+  padding: 5px 35px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.923);
+  border: 4px solid #9500ff;
  
 }
 .buttonBuy button:hover{
@@ -486,13 +496,13 @@ background: linear-gradient(0deg, rgb(84, 22, 128) 0%, rgb(141, 40, 223) 100%);
 /* pay */
 .pay {
   background-color: #000000;
-background-image: radial-gradient(at 78% 98%, rgb(0, 0, 0) 0, hsla(52, 94%, 68%, 0) 50%),
-radial-gradient(at 30% 69%, rgb(111, 36, 173) 0, hsla(253, 86%, 59%, 0) 50%),
-radial-gradient(at 40% 2%, rgb(0, 0, 0) 0, hsla(149, 91%, 70%, 0) 50%),
-radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
-radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
-radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
-radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);
+  background-image: radial-gradient(at 78% 98%, rgb(0, 0, 0) 0, hsla(52, 94%, 68%, 0) 50%),
+  radial-gradient(at 30% 69%, rgb(111, 36, 173) 0, hsla(253, 86%, 59%, 0) 50%),
+  radial-gradient(at 40% 2%, rgb(0, 0, 0) 0, hsla(149, 91%, 70%, 0) 50%),
+  radial-gradient(at 12% 5%, rgb(0, 0, 0) 0, hsla(265, 94%, 55%, 0) 50%),
+  radial-gradient(at 17% 97%, rgb(0, 0, 0) 0, hsla(277, 85%, 66%, 0) 50%),
+  radial-gradient(at 56% 49%, rgb(22, 9, 30) 0, hsla(218, 95%, 50%, 0) 50%),
+  radial-gradient(at 23% 1%, rgb(136, 49, 202) 0, hsla(26, 88%, 64%, 0) 50%);
   display: flex;
   justify-content: center;
   align-items: center;
