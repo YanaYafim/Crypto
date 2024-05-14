@@ -1,0 +1,141 @@
+openapi: 3.0.3
+info:
+  title: DarkCrypto Auth API
+  description: |-
+    SignUP, Login, Logout, get and update user profile information.
+  contact:
+    email: tablet.ejv@gmail.com
+  version: 1.0.11
+servers:
+  - url: https://crypto-project-8b032f3919a5.herokuapp.com
+    description: DarkCrypto WebSite
+tags:
+  - name: Auth
+    description: API for user registration, login, logout, user profile management
+
+paths:
+  /signup:
+    post:
+      tags: 
+        - Auth
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201':
+          description: User registered successfully
+        '400':
+          description: Invalid request body or user already exists
+
+  /login:
+    post:
+      tags: 
+        - Auth
+      summary: Log in as an existing user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credentials'
+      responses:
+        '200':
+          description: User logged in successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLoginResponse'
+        '400':
+          description: Invalid credentials
+
+  /logout:
+    get:
+      tags: 
+        - Auth
+      summary: Log out the current user
+      responses:
+        '200':
+          description: User logged out successfully
+
+  /profile:
+    get:
+      tags: 
+        - Auth
+      summary: Get user profile information
+      responses:
+        '200':
+          description: User profile retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: Unauthorized access
+
+    put:
+      tags: 
+        - Auth
+      summary: Update user profile information
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: User profile updated successfully
+        '400':
+          description: Invalid request body or password update error
+        '401':
+          description: Unauthorized access
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        userName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - userName
+        - email
+        - password
+
+    Credentials:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+
+    UserLoginResponse:
+      type: object
+      properties:
+        user:
+          $ref: '#/components/schemas/User'
+
+    UserUpdate:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        newPassword:
+          type: string
+      required:
+        - email
+        - newPassword
