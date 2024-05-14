@@ -1,6 +1,6 @@
 $(function() {
     getMarketData();
-    setInterval(getMarketData, 10000);
+    setInterval(getMarketData, 1000 * 60 * 10);
   });
   console.log("111")
   function getMarketData() {
